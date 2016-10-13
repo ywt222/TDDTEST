@@ -28,17 +28,27 @@ public class MommifierTest {
     }
 
     @Test
-    public void shouldNotMommifierStringWithNoVowel() throws Exception {
+    public void shouldNotMommifierStringWithoutVowel() throws Exception {
         assertEquals("xyz", mommyfier.mommyfy("xyz"));
     }
 
     @Test
-    public void shouldMommifierStringWithVowel() throws Exception {
+    public void shouldMommifierStringWithSingleVowel() throws Exception {
         assertEquals("hmommys", mommyfier.mommyfy("his"));
     }
 
     @Test
-    public void shouldMommifierStringWithTwoVowel() throws Exception {
+    public void shouldMommifierStringWithContinousVowel() throws Exception {
         assertEquals("hmommyd", mommyfier.mommyfy("head"));
+    }
+
+    @Test
+    public void shouldMommifierStringWithSeveralVowel() throws Exception {
+        assertEquals("mommyhmommydmommy", mommyfier.mommyfy("aheada"));
+    }
+
+    @Test
+    public void shouldNotMommifierStringWithVowelCountNotMoreThanThirtyPercent() throws Exception {
+        assertEquals("ahihhxyzbde", mommyfier.mommyfy("ahihhxyzbde"));
     }
 }
